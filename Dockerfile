@@ -40,10 +40,11 @@ RUN apt-get install -y nodejs build-essential dpkg-dev mysql-client && \
 RUN touch /etc/inittab && \
     dpkg-divert --local --rename --add /sbin/initctl && \
     ln -sf /bin/true /sbin/initctl
-    
+
+COPY ./fake-inittab /etc/inittab
+
 COPY ./prepare-env.sh /prepare-env.sh
 RUN chmod +x /prepare-env.sh && \
-    touch /etc/inittab && \
     ln -s /bin/true /sbin/start
 
 RUN apt-get clean autoclean && \
