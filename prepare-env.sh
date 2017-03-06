@@ -3,6 +3,7 @@ npm config set cache $PWD/.npm --global
 apt-get install sudo
 echo "root ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/docker && chmod 0440 /etc/sudoers.d/docker
 export GOROOT=/goroot
+export GOPATH=$CI_PROJECT_DIR/gopath/
 export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
 cd $GOPATH/src/github.com/FabLabBerlin/localmachines
 echo "Waiting for MySQL." && sleep 10
