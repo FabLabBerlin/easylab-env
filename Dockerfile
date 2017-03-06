@@ -4,6 +4,11 @@ MAINTAINER syso "syso@makea.org"
 # Install Go
 RUN apt-get update &&  apt-get -y install curl git-core
 
+# Add Ansible as a base package. Used for deploy to staging & production.
+RUN apt-get install software-properties-common && \
+    apt-add-repository ppa:ansible/ansible && \
+    apt-get update && apt-get install ansible 
+
 RUN \
   mkdir -p /goroot && mkdir -p /gopath && \
   curl https://storage.googleapis.com/golang/go1.8.linux-amd64.tar.gz | tar xvzf - -C /goroot --strip-components=1
