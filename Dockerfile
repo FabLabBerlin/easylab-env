@@ -1,10 +1,5 @@
-# Dockerfile for EasyLab development and deployment environment
-
-MAINTAINER syso "syso@makea.org"
-
 FROM ubuntu:16.04
-
-CMD /sbin/init
+MAINTAINER syso "syso@makea.org"
 
 # Install Go
 RUN apt-get update &&  apt-get -y install curl git-core
@@ -48,3 +43,5 @@ RUN apt-get clean autoclean && \
     apt-get autoremove -y
 
 EXPOSE 8080
+
+CMD /sbin/init
