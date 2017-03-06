@@ -1,4 +1,7 @@
 #!/bin/bash
+
+if [ -z $GITLAB_CI ]; then echo "This file is meant to be used by GitLab CI only." && exit 1; else echo "Ok, found CI environment"; fi
+
 npm config set cache $PWD/.npm --global
 apt-get install sudo
 echo "root ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/docker && chmod 0440 /etc/sudoers.d/docker
