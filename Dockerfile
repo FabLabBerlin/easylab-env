@@ -18,7 +18,7 @@ RUN echo "Europe/Berlin" > /etc/timezone && dpkg-reconfigure -f noninteractive t
     echo "root ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/root && chmod 0440 /etc/sudoers.d/root
 
 # Set environment variables.
-ENV GOROOT /goroot
+ENV GOROOT=/goroot
 ENV GOPATH=/gopath
 ENV PATH $GOROOT/bin:$GOPATH/bin:$PATH
 ENV GO15VENDOREXPERIMENT 1
