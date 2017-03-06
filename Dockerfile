@@ -5,9 +5,9 @@ MAINTAINER syso "syso@makea.org"
 RUN apt-get update &&  apt-get -y install curl git-core
 
 # Add Ansible as a base package. Used for deploy to staging & production.
-RUN apt-get install software-properties-common && \
+RUN apt-get install -y software-properties-common && \
     apt-add-repository ppa:ansible/ansible && \
-    apt-get update && apt-get install ansible 
+    apt-get update && apt-get install -y ansible 
 
 RUN \
   mkdir -p /goroot && mkdir -p /gopath && \
