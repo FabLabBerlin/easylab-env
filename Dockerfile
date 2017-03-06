@@ -43,7 +43,8 @@ RUN touch /etc/inittab && \
     
 COPY ./prepare-env.sh /prepare-env.sh
 RUN chmod +x /prepare-env.sh && \
-    touch /etc/inittab
+    touch /etc/inittab && \
+    ln -s /bin/true /sbin/start
 
 RUN apt-get clean autoclean && \
     apt-get autoremove -y
