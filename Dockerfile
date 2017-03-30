@@ -7,7 +7,7 @@ RUN apt-get update &&  apt-get -y install curl git-core
 # Add Ansible as a base package. Used for deploy to staging & production.
 RUN apt-get install -y software-properties-common && \
     apt-add-repository ppa:ansible/ansible && \
-    apt-get update && apt-get install -y ansible 
+    apt-get update && apt-get install -y ansible netcat
 
 RUN \
   mkdir -p /goroot && mkdir -p /gopath && \
