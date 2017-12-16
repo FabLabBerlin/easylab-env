@@ -37,6 +37,8 @@ RUN apt-get install -y nodejs build-essential dpkg-dev mysql-client && \
     npm -g install bower grunt-cli && \
     curl https://glide.sh/get | bash
 
+RUN apt-get install -y imagemagick
+
 RUN touch /etc/inittab && \
     dpkg-divert --local --rename --add /sbin/initctl && \
     ln -sf /bin/true /sbin/initctl
